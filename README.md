@@ -255,17 +255,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- [Stability AI](https://stability.ai/) for Stable Diffusion XL
-- [Hugging Face](https://huggingface.co/) for the Diffusers library
-- [ControlNet](https://github.com/lllyasviel/ControlNet) for precise image control
-- [Streamlit](https://streamlit.io/) for the web framework
-- [FastAPI](https://fastapi.tiangolo.com/) for the API framework
-
-## 📧 Contact
-
-For questions or support, please open an issue on GitHub.
 
 ---
 
