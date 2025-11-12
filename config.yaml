@@ -1,0 +1,45 @@
+# Model Configuration
+MODEL_ID: "stabilityai/stable-diffusion-xl-base-1.0"
+CONTROLNET_MODEL: "diffusers/controlnet-canny-sdxl-1.0"
+REFINER_MODEL: "stabilityai/stable-diffusion-xl-refiner-1.0"
+
+# Generation Settings
+DEFAULT_NUM_INFERENCE_STEPS: 30
+DEFAULT_GUIDANCE_SCALE: 7.5
+DEFAULT_CONTROLNET_CONDITIONING_SCALE: 0.5
+MAX_VARIATIONS: 4
+IMAGE_SIZE: 1024
+
+# Product Types and Prompts
+PRODUCT_TYPES:
+  tshirt:
+    name: "T-Shirt"
+    base_prompt: "professional product photography of a {style} t-shirt with custom design, high quality, photorealistic"
+  mug:
+    name: "Mug"
+    base_prompt: "professional product photography of a ceramic {style} mug with custom design, high quality, photorealistic"
+  phone_case:
+    name: "Phone Case"
+    base_prompt: "professional product photography of a {style} phone case with custom design, high quality, photorealistic"
+  packaging:
+    name: "Product Packaging"
+    base_prompt: "professional product photography of {style} product packaging with custom design, high quality, photorealistic"
+
+# Mockup Styles
+MOCKUP_STYLES:
+  studio:
+    name: "Studio"
+    prompt_suffix: "studio lighting, white background, clean, minimalist"
+  reallife:
+    name: "Real Life"
+    prompt_suffix: "lifestyle photography, natural environment, realistic setting"
+  flatlay:
+    name: "Flat Lay"
+    prompt_suffix: "flat lay photography, top-down view, organized composition"
+
+# Negative Prompt
+NEGATIVE_PROMPT: "blurry, low quality, distorted, pixelated, ugly, bad anatomy, watermark, text, signature"
+
+# File Paths
+OUTPUT_DIR: "generated_mockups"
+UPLOAD_DIR: "temp_uploads"
