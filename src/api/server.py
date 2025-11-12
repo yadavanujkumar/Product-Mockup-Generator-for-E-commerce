@@ -183,7 +183,20 @@ async def generate_mockup(
 @app.get("/mockups/{filename}")
 async def get_mockup(filename: str):
     """Retrieve a generated mockup image."""
-    file_path = os.path.join(config['OUTPUT_DIR'], filename)
+    # Prevent path traversal attacks by validating filename
+    # Only allow alphanumeric characters, hyphens, underscores, and .png extension
+    import re
+    if not re.match(r'^[a-zA-Z0-9_\-]+\.png$', filename):
+        raise HTTPException(status_code=400, detail="Invalid filename format")
+    
+    # Ensure the path stays within OUTPUT_DIR
+    output_dir = os.path.abspath(config['OUTPUT_DIR'])
+    file_path = os.path.join(output_dir, filename)
+    file_path = os.path.abspath(file_path)
+    
+    # Verify the resolved path is still within OUTPUT_DIR
+    if not file_path.startswith(output_dir):
+        raise HTTPException(status_code=400, detail="Invalid file path")
     
     if not os.path.exists(file_path):
         raise HTTPException(status_code=404, detail="Mockup not found")
